@@ -1,0 +1,2 @@
+
+ naver/daum/google 폴더에 해당내용 만들기 (out.txt)

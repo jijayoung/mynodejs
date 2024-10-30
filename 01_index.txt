@@ -1,0 +1,30 @@
+ch01_01
+ch01_02 사칙연산,문자열,연산자,논리연산자
+ch01_03 let, const
+ch01_04 증감연산자
+ch01_05 typeof
+ch01_06 형변환
+ch01_07 동등/일치연산자
+ch01_08 조건문
+ch01_09 중첩조건문
+ch01_10 switch case
+ch01_11 삼항연산자
+ch01_12 배열 
+ch01_13 while
+ch01_14 for
+ch01_15 for in
+ch01_16 for of
+ch01_17 break ,continue
+ch01_18 map
+ch01_19 filter
+ch01_20 forEach , push
+ch01_21 함수정의
+ch01_22 콜백함수
+ch01_23 setTimeout,setInterval
+ch01_24 객체생성
+ch01_25 순회함수 keys
+ch01_26 
+ch01_27 try catch finally
+ch01_28 콜백
+ch01_29 promise then
+ch01_30 async await

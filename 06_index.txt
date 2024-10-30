@@ -1,0 +1,44 @@
+(window에서 curl 사용위한 리눅스 설치
+wsl install
+wsl --set-default-version 2)
+
+[[ch06_02]]
+postman
+
+[api.js] sql 이용한 게시판
+npm init -y
+npm i express nodemon moment sqlite3
+npx nodemon api.js
+
+[api2.js]RESTfulAPI, 'better-sqlite3' 모듈 이용한 게시판
+
+npm i better-sqlite
+npx nodemon api2.js
+
+
+
+[[[ch06-03]] graphql 
+npm i express better-sqlite3 graphql express-graphql nodemon
+
+mutation{
+    createPost ( input : {
+            title : "타이틀5",
+            content : "콘텐트5",
+            author : "jjyc5"}){
+            id
+    }
+}
+
+
+mutation{
+    updatePost ( id:4,input : {title : "수정", content : "수정"}){
+        id
+        title
+        content
+    }
+}
+
+mutation{
+    deletePost( id:4)
+    
+}

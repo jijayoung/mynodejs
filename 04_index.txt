@@ -1,0 +1,16 @@
+npm init -y //프로젝트생성
+npm i express // express 모듈설치
+
+크롬에 json fomatter 확장프로그램 설치
+
+[
+npm i nodemon
+pakage.json 파일의 script에 "dev" : "nodemon 파일명"추가
+npm run dev
+/
+npm i nodemon
+npx nodemon ch04_01.js
+]
+
+
+04_01 express
