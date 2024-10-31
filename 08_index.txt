@@ -1,0 +1,29 @@
+[git]
+
+git add test2.js
+git commit -m "241030 test2.js added"
+git push origin main
+git pull
+
+
+[ch08-01 squelize	]
+npm init-y
+npm i seqelize  sqlite3
+
+
+
+[ch08-02]
+npm i express nodemon sequelize sequelize-cli sqlite3
+npx sequelize-cli init
+
+- ch08_02>config>config.json
+
+  "development": {
+    "dialect" : "sqlite",
+    "storage" : "post.db"
+  }
+
+
+ch08_02>config>models>post.js생성
+ch08_02>app.js
+ch08_02>models>comment.js
