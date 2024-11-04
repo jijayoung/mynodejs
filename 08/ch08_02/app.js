@@ -1,19 +1,41 @@
 const express = require('express');
 const path = require('path');
 const models = require('./models') // models/index.js
-
+const multer = require('multer') //첨부파일
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use("/downloads", express.static(path.join(__dirname, "public/uploads"))); //첨부파일
 
-app.post("/posts", async (req, res) => {
+const upload_dir = "public/uploads";
+//req :http://localhost:3000/downloads/text.png
+//res :publc/uploads/test.png
+const storage = multer.diskStorage({
+    destination: `./${upload_dir}`,
+    filename: function (req, file, cb) {
+        console.log('multer',file.originalname) // originalname :test.png
+        cb(null,
+            path.parse(file.originalname).name +  //test
+            "-" +
+            Date.now() +
+            path.extname(file.originalname) //.png
+        )
+    } //test.png => test-202411010101.png
+});
+
+const upload = multer({ storage: storage });  //첨부파일
+
+app.post("/posts", upload.single("file"), async (req, res) => {
     const { title, content, author } = req.body;
+    let filename = req.file ? req.file.filename : null; // test-202411010101.png
+    filename = `/downloads/${filename}`; // /downloads/test-202411010101.png
     const post = await models.Post.create({
         title: title,
         content: content,
         author: author,
+        filename : filename ,
     });
     res.status(201).json({ post: post });
 });
@@ -77,6 +99,36 @@ app.post("/posts/:id/comments", async (req, res) => {
     })
     res.status(201).json({ data: comment })
 });
+
+//comment update
+app.put("/posts/:postId/comments/:commentId", async (req, res) => {
+    const postId = req.params.postId;
+    const commentId = req.params.commentId;
+    const { content } = req.body;
+    const comment = await models.Comment.findByPk(commentId) // comment get
+    if (comment) {
+        comment.content = content;
+        await comment.save(); // comment update
+        res.status(200).json({ data: comment });
+    } else {
+        res.status(404).json({ result: "comment not found" });
+    }
+});
+
+//comment delete
+app.delete("/posts/:postId/comments/:commentId", async (req, res) => {
+    const commentId = req.params.commentId;
+    const result = await models.Comment.destroy({
+        where: { id: commentId }
+    });
+    console.log(`result id ${JSON.stringify(result)}`); //deleted coust => result
+    if (result) {
+        res.status(204).json();
+    } else {
+        res.status(404).json({ result: "comment not found" });
+    };
+});
+
 
 app.listen(PORT, () => {
     console.log(`server listening on ${PORT}`);
