@@ -27,3 +27,14 @@ npx sequelize-cli init
 ch08_02>config>models>post.js생성
 ch08_02>app.js
 ch08_02>models>comment.js
+
+
+
+[첨부파일]
+npm i multer
+
+[마이그래이션]
+npx sequelize-cli migration:generate --name add-filename-to-posts
+npx sequelize-cli db:migrate
+
+

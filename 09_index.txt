@@ -1,0 +1,42 @@
+[몽고DB]
+윈도우는 설치 요함
+(https://www.mongodb.com/try/download/community)
+
+
+db
+
+use userdb
+
+show collections
+
+db.createCollection("users")
+
+db.users.insertOne({name:"jjyc",age:30,city:"seoul"})
+
+db.users.find()
+
+db.users.insertMany([{name :'bob',age:12},{name:'john',age:23,address:"korea busan"}])
+
+db.users.find({name:'jjyc'})
+
+db.users.find({age:{$lt:20}})
+
+db.users.updateOne({name:'jjyc'},{$set:{age:41}})
+
+db.users.updateMany({age:{$gt:10}},{$set:{city:"seoul"}})
+
+db.users.deleteOne({name:'jjyc'})
+
+
+
+
+[ch09_02] 몽구스
+
+npm i mongoose
+
+
+[ch09_03] 몽고db이용한 게시판
+npm init -y
+npm i express nodemon mongoose
+
+app.js 생성
