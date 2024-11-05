@@ -1,0 +1,40 @@
+[postgresSQL]
+https://www.postgresql.org/download/
+password - admin
+포트 - 5432
+
+-----------------------
+
+create database ch10;
+create user admin with encrypted password 'admin';
+grant all privileges on database ch10 to admin;
+
+
+[ch10_01]
+npm init -y
+npm i express nodemon pg sequelize-cli sequelize
+npm i jest
+npx sequelize-cli init
+
+config.json 수정
+
+  "development": {
+    "username": "admin",
+    "password": "admin",
+    "database": "ch10",
+    "host": "127.0.0.1",
+    "dialect": "postgresql"
+  }
+
+
+[SQL Shell]
+\l
+\c ch10
+\d posts
+\q
+
+더미데이터 만들기
+npx sequelize-cli seed:generate --name demo-user
+npx sequelize-cli db:seed:all
+
+\c ch10

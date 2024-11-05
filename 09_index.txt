@@ -28,8 +28,6 @@ db.users.updateMany({age:{$gt:10}},{$set:{city:"seoul"}})
 db.users.deleteOne({name:'jjyc'})
 
 
-
-
 [ch09_02] 몽구스
 
 npm i mongoose
@@ -40,3 +38,5 @@ npm init -y
 npm i express nodemon mongoose
 
 app.js 생성
+
+
