@@ -37,4 +37,7 @@ npm i multer
 npx sequelize-cli migration:generate --name add-filename-to-posts
 npx sequelize-cli db:migrate
 
+[jest]
+postDao.test.js
 
+npm run test

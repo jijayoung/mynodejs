@@ -38,3 +38,15 @@ npx sequelize-cli seed:generate --name demo-user
 npx sequelize-cli db:seed:all
 
 \c ch10
+
+npm i express-validator
+
+[마이그래이션]
+npx sequelize-cli migration:generate --name change-timestamps-in-users
+npx sequelize-cli db:migrate
+
+
+[인증]
+npm i bcryptjs jsonwebtoken
+
+utils>token.js

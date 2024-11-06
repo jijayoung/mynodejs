@@ -4,6 +4,7 @@ const path =  require("path");
 
 // import router from routes
 const userRoute = require('./routes/userRoute');
+const postRoute = require('./routes/postRoute');
 
 const models = require("./models"); // models/index.js
 const app = express();
@@ -12,7 +13,8 @@ const PORT = 3000;
 app.use(express.json());
 
 //use router
-app.use("/users",userRoute)
+app.use("/users",userRoute);
+app.use("/posts",postRoute);
 
 app.listen(PORT, ()=>{
     console.log(`server is runing on ${PORT}`);

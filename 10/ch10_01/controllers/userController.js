@@ -1,4 +1,5 @@
 const userService = require('../services/userService');
+const { validationResult } = require("express-validator");
 
 const findAll = async (req, res) => {
     try {
@@ -11,6 +12,10 @@ const findAll = async (req, res) => {
 
 const createUser = async (req, res) => {
     try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({errors:errors.array().map(e => e.msg) })
+        }
         const users = await userService.createUser(req.body);
         res.status(200).json({ data: users, message: 'ok' })
     } catch (e) {
