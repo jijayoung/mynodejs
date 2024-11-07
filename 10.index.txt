@@ -50,3 +50,5 @@ npx sequelize-cli db:migrate
 npm i bcryptjs jsonwebtoken
 
 utils>token.js
+
+https://jwt.io/

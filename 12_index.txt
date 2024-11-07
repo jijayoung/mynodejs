@@ -1,0 +1,16 @@
+[ch12_01 웹소켓 챗팅]
+npx create-react-app ch12_01
+npm i socket.io-client
+
+server폴더생성
+npm init -y
+npm i express socket.io
+
+
+[ch12_02 방만들기 가능한 챗팅]
+npx create-react-app ch12_02
+npm i socket.io-client concurrently
+
+server폴더생성
+npm init -y
+npm i express socket.io
